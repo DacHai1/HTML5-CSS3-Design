@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock</title>
+    <link rel="shortcut icon" href="img/r.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/sameHeaderAndNav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/816292581e.js" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- Active player chart -->
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['WEEKDAY', 'People'],
+                ['MON', 40],
+                ['TUE', 25],
+                ['WED', 30],
+                ['THU', 50],
+                ['FRI', 30],
+                ['SAT', 27],
+                ['SUN', 40]
+            ]);
+            var options = {
+                title: '',
+                legend: { position: 'left' },
+                pointShape: 'circle',
+                pointSize: 5,
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <!-- End active player chart -->
+
+    <!-- Start active tournament chart -->
+
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['MONTH', 'TOURNAMENTS'],
+                ['JAN', 450],
+                ['FEB', 750],
+                ['MAR', 600],
+                ['APR', 900],
+                ['MAY', 450],
+                ['JUN', 300],
+                ['JULY', 400],
+
+
+            ]);
+
+            var options = {
+                title: '',
+                legend: { position: 'left' },
+                pointShape: 'circle',
+                pointSize: 5
+            };
+
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <!-- End active tournament chart -->
+
+    <!-- Donut chart -->
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Effort', 'Amount given'],
+                ['My all', 20],
+                [null, { v: 80, f: '' }]
+            ]);
+
+            var options = {
+                pieHole: 0.6,
+                pieSliceTextStyle: {
+                    color: 'black'
+                },
+                colors: ['black', 'white'],
+                legend: 'none',
+                pieSliceText: 'percentage'
+
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
+            chart.draw(data, options);
+        }
+    </script>
+    <!-- End donut chart -->
+    <style>
+        .pie {
+            --p: 20;
+            --b: 20px;
+            --c: darkred;
+            --w: 100px;
+            width: var(--w);
+            aspect-ratio: 1;
+            position: relative;
+            display: inline-grid;
+            margin: 5px;
+            place-content: center;
+            font-size: 1vw;
+            font-weight: bold;
+            font-family: sans-serif;
+
+        }
+
+        .pie:before,
+        .pie:after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .pie:before {
+            inset: 0;
+            background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b) var(--b) no-repeat, conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+            -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+            mask: radial-gradient(farthest-side, #0000 calc(99% - var (--b)), #000 calc(100%-var(--b)));
+        }
+
+        .pie:after {
+            inset: calc(50%-var(--b)/2);
+            background: var(--c);
+            transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50%-var(--w)/2));
+        }
+
+        .player-statistics {
+            display: grid;
+            grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+        }
+
+        .player-statistics h3 {
+            grid-area: 1/1/2/7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- nav tag on the left of website -->
+        <nav class="navigation">
+            <ul>
+                <li>
+                    <a href="">
+                        <span class="icon"><i class="fa-brands fa-apple"></i></span>
+                        <span class="title">Brand Name</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="html/detail.html">
+                        <span class="icon"><i class="fa fa-house"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="html/login.html">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="html/register.html">
+                        <span class="icon"><i class="fa fa-phone"></i></span>
+                        <span class="title">Message</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="html/aboutUs.html">
+                        <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="html/game.html">
+                        <span class="icon"><i class="fa-sharp fa-solid fa-gear"></i></span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <span class="title">Sign out</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- end nav -->
+        <!-- main -->
+        <main class="main">
+            <!-- header  -->
+            <header>
+                <div class="toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="ability">
+                    <a href="#">+Add User</a>
+                    <a href="#">User Preferences</a>
+                    <a href="#">Settings</a>
+                </div>
+                <div class="search">
+                    <label>
+                        <div><i class="fa fa-magnifying-glass"></i></div>
+                        <input type="text">
+                    </label>
+                </div>
+
+
+                <div class="navigator-account">
+                    <div class="navigator-account-icon"><img src="img/face-icon.jpg"></div>
+                    <div class="navigator-account-name">Dac Hai<i class="fa-sharp fa-solid fa-caret-down"></i></div>
+                </div>
+
+            </header>
+            <!-- end header -->
+            <!-- section -->
+            <section>
+                <article class="dashboard">
+                    <div>Dashboard</div>
+                    <i class="fa fa-gear"></i>
+                </article>
+
+                <article class="data-numbers">
+                    <div class="data-num first">
+                        <div class="num">267</div>
+                        <div class="data-title">Online Players</div>
+                    </div>
+                    <div class="data-num second">
+                        <div class="num">1890</div>
+                        <div class="data-title">Hour played</div>
+                    </div>
+                    <div class="data-num third">
+                        <div class="num">22</div>
+                        <div class="data-title">New Tournaments</div>
+                    </div>
+                    <div class="data-num fourth">
+                        <div class="num">16</div>
+                        <div class="data-title">Lifetime Fails</div>
+                    </div>
+                    <div class="data-num fifth">
+                        <div class="num">6544</div>
+                        <div class="data-title">Comments</div>
+                    </div>
+                    <div class="data-num sixth">
+                        <div class="num">568</div>
+                        <div class="data-title">Games Played</div>
+                    </div>
+                </article>
+                <div class="all-chart">
+                    <article class="active-players">
+                        <h3>Active players</h3>
+                        <div id="curve_chart" class="active-players-chart"></div>
+                    </article>
+                    <article class="active-tournaments">
+                        <h3>Active Tournaments</h3>
+                        <div id="curve_chart2" class="active-tournaments-chart"></div>
+                    </article>
+                    <article class="recent-players">
+                        <h3>Recent players</h3>
+                        <div class="players">
+                            <div class="icon-player"><img src="img/6.jpg"></div>
+                            <div class="player-name">Christian Bale</div>
+                            <div class="player-country">America</div>
+                        </div>
+                        <div class="players">
+                            <div class="icon-player"><img src="img/1.jpg"></div>
+                            <div class="player-name">Sarah</div>
+                            <div class="player-country">American</div>
+                        </div>
+                        <div class="players">
+                            <div class="icon-player"><img src="img/2.jpg"></div>
+                            <div class=" player-name">Bang Bang</div>
+                            <div class="player-country">Chinese</div>
+                        </div>
+                        <div class="players">
+                            <div class="icon-player"><img src="img/3.jpg"></div>
+                            <div class="player-name">Vo Nguyen Giap</div>
+                            <div class="player-country">Vietnamese</div>
+                        </div>
+                        <div class="players">
+                            <div class="icon-player"><img src="img/4.jpg"></div>
+                            <div class="player-name">Nguyen Tat Thanh</div>
+                            <div class="player-country">Vietnamese</div>
+                        </div>
+                        <div class="players">
+                            <div class="icon-player"><img src="img/5.jpg"></div>
+                            <div class="player-name">Jenifer Conelly</div>
+                            <div class="player-country">American</div>
+                        </div>
+                    </article>
+                    <article class="player-statistics">
+                        <h3>Player statistics</h3>
+                        <div class="donut-chart">
+                            <div class="pie" style="--p:20">20%
+                            </div>
+                            <p>New Players</p>
+                        </div>
+                        <div class="donut-chart">
+                            <div class="pie" style="--p:40;--c:darkblue;--b:10px">40%
+
+                            </div>
+                            <p class="revisited">Revisited</p>
+                        </div>
+                        <div class="donut-chart">
+                            <div class="pie no-round" style="--p:60;--c:purple;--b:15px">60%
+
+                            </div>
+
+
+                            <p class="commented">Commented</p>
+                        </div>
+                        <div class="donut-chart">
+                            <div class="pie animate no-round" style="--p:80;--c:orange;">80%
+
+                            </div>
+                            <p class="Active-player">Active Players</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <!-- end section -->
+        </main>
+        <!-- end main -->
+    </div>
+    <script src="js/toggle.js">
+
+    </script>
+</body>
+
+</html>
